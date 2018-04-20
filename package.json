@@ -1,0 +1,89 @@
+{
+    "name": "macos-touchbar-extension",
+    "displayName": "macOS Touchbar Extension",
+    "description": "Extension to the MacBook touchbar functionality to improve user experience without F-keys",
+    "version": "0.0.1",
+    "publisher": "jraine",
+    "engines": {
+        "vscode": "^1.22.0"
+    },
+    "categories": [
+        "Other"
+    ],
+    "activationEvents": [
+        "*"
+    ],
+    "main": "./out/extension",
+    "contributes": {
+        "commands": [
+            {
+                "command": "extension.openCommandPallette",
+                "title": "Command Pallette",
+                "icon": "./assets/cmdPallette.png"
+            },
+            {
+                "command": "extension.openFileExplorer",
+                "title": "File",
+                "icon": "./assets/wfile.png"
+            },
+            {
+                "command": "extension.openSearch",
+                "title": "Search",
+                "icon": "./assets/wsearch.png"
+            },
+            {
+                "command": "extension.openGit",
+                "title": "Git",
+                "icon": "./assets/wscm.png"
+            },
+            {
+                "command": "extension.openExt",
+                "title": "Ext",
+                "icon": "./assets/wext.png"
+            },
+            {
+                "command": "extension.openClose",
+                "title": "Close SB",
+                "icon": "./assets/wclose.png"
+            }
+        ],
+        "menus": {
+            "touchBar": [
+                {
+                    "command": "extension.openCommandPallette",
+                    "group": "z"
+                },
+                {
+                    "command": "extension.openFileExplorer",
+                    "group": "menu"
+                },
+                {
+                    "command": "extension.openSearch",
+                    "group": "menu"
+                },
+                {
+                    "command": "extension.openGit",
+                    "group": "menu"
+                },
+                {
+                    "command": "extension.openClose",
+                    "group": "menu"
+                }
+            ]
+        }
+    },
+    "scripts": {
+        "vscode:prepublish": "npm run compile",
+        "compile": "tsc -p ./",
+        "watch": "tsc -watch -p ./",
+        "postinstall": "node ./node_modules/vscode/bin/install",
+        "test": "npm run compile && node ./node_modules/vscode/bin/test"
+    },
+    "devDependencies": {
+        "typescript": "^2.6.1",
+        "vscode": "^1.1.6",
+        "tslint": "^5.8.0",
+        "@types/node": "^7.0.43",
+        "@types/mocha": "^2.2.42"
+    }
+}
